@@ -10,7 +10,10 @@ public class Main {
         String fileName = "a_example.txt";
        InputReader reader =  new InputReader(fileName);
        List<Library> libs = reader.getLibraries();
-       
+       SolutionWriter solutionWriter = new SolutionWriter("third-incabula-answers.txt" );
+
+       Runner runner = new Runner( libs, solutionWriter, reader.getNumOfDays() );
+       runner.run();
     }
 
 
