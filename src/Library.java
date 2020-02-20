@@ -50,4 +50,41 @@ public class Library {
     public void setId(int id) {
         this.id = id;
     }
+
+    // Function for calculating median
+    public static double findMedian(int[] a, int n)
+    {
+        // First we sort the array
+        Arrays.sort(a);
+
+        // check for even case
+        if (n % 2 != 0)
+            return (double)a[n / 2];
+
+        return (int)(a[(n - 1) / 2] + a[n / 2]) / 2.0;
+    }
+
+    public int CalculateLibraryScoreM(Library lib) {
+        List<Book> books = getBooks(); //books score increasing sorted
+        int[] scores = new int[books.size()];
+        for (int i = 0; i < books.size(); i++) {
+            Book b = books.get(i);
+//            scores[i] = b.getScore();
+        }
+        Arrays.sort(scores);
+        int median = (int) findMedian(scores, books.size());
+        List<Book> temp_books;
+        List<Book> high_score_books = new ArrayList<>();
+        for (int i = median; i < books.size(); i++) {
+            high_score_books.add(books.get(i));
+
+        }
+        int sum = 0;
+        for (Book b: high_score_books) {
+            sum += b.getScore();
+        }
+        int lib_score = (sum / high_score_books.size()) + lib.getDays();
+
+        return lib_score;
+    }
 }
