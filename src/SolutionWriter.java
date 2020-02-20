@@ -16,17 +16,23 @@ public class SolutionWriter {
             FileWriter out = new FileWriter(file);
 
             PrintWriter printWriter =new PrintWriter(out);
+
+
             printWriter.println(solution.size());
             for(Pair<Library,List<Book>> l : solution){
-                printWriter.print(l.getFst().getId());
-                printWriter.print(" ");
-                printWriter.print(l.getSnd().size());
-                printWriter.println();
 
-                for(Book b : l.getSnd()){
-                    printWriter.print(b.getId());
+                    printWriter.print(l.getFst().getId());
                     printWriter.print(" ");
-                }
+                    printWriter.print(l.getSnd().size());
+                    printWriter.println();
+
+
+                        for(Book b : l.getSnd()){
+                            printWriter.print(b.getId());
+                            printWriter.print(" ");
+                        }
+                        printWriter.println();
+
             }
             out.close();
 
