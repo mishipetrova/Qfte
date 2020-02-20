@@ -1,4 +1,4 @@
-import java.awt.image.AreaAveragingScaleFilter;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.*;
@@ -8,6 +8,8 @@ public class Main {
         File file = new File("a_example.txt");
         List<Library> libraries = new ArrayList<>();
         Map<Integer,Integer> scoreMap = new HashMap<Integer,Integer>();
+        Map<Integer,Integer> occurmap = new HashMap<>();
+
 
         try {
             Scanner sc =new Scanner(file);
@@ -36,13 +38,20 @@ public class Main {
                line = sc.nextLine();
                strings = line.split(" ");
                for(String s : strings){
+                   if(occurmap.containsKey(Integer.parseInt(s))){
+                       occurmap.put(Integer.parseInt(s),occurmap.get(Integer.parseInt(s)) + 1);
+                   }
+                   else{
+                       occurmap.put(Integer.parseInt(s),1);
+
+                   }
                    books.add(new Book(Integer.parseInt(s),scoreMap.get(Integer.parseInt(s))));
                    System.out.print( "Book id" + Integer.parseInt(s) + " ");
                }
                libraries.add(new Library(i,books,signup,booksPerDay));
                System.out.println();
            }
-
+            System.out.println("Done");
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
