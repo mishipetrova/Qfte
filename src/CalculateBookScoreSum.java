@@ -1,10 +1,10 @@
 import java.util.List;
 
-public class CalculateLibraryScoreSum implements CalculateLibraryScore{
+public class CalculateBookScoreSum implements CalculateBookScore{
 
     @Override
-    public Long calculate(List<Book> books) {
-        Long sum = 0L;
+    public double calculate(List<Book> books) {
+        double sum = 0L;
         for (Book book : books) {
             sum += (long) book.getScore();
         }
