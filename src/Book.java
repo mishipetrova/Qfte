@@ -17,7 +17,7 @@ public class Book {
         this.id = id;
     }
 
-    public int getScore() {
+    public double getScore() {
         return score;
     }
 
