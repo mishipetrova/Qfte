@@ -2,6 +2,7 @@ import java.util.*;
 
 public class Library {
 
+    private int id;
     //the set of books in the library
     private List<Book> books;
     //the time in days that it takes to sign the library up for scanning
@@ -10,7 +11,8 @@ public class Library {
     private int booksPerDay;
 
 
-    public Library(List<Book> books, int days, int booksPerDay) {
+    public Library(List<Book> books, int days, int booksPerDay, int id) {
+        this.id = id;
         this.books = books;
         this.days = days;
         this.booksPerDay = booksPerDay;
@@ -39,5 +41,13 @@ public class Library {
 
     public void setBooksPerDay(int booksPerDay) {
         this.booksPerDay = booksPerDay;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }
