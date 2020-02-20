@@ -4,6 +4,7 @@ public class Book {
 
     private int id;
 
+    private boolean isScanned;
     private int score;
 
     public Book(int id, int score) {
@@ -42,4 +43,15 @@ public class Book {
     }
 
 
+    public boolean isScanned() {
+        return isScanned;
+    }
+
+    public void setScanned(boolean scanned) {
+        isScanned = scanned;
+    }
+
+    public void updateScore(int occurrences) {
+        score = score / occurrences;
+    }
 }

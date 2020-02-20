@@ -10,6 +10,8 @@ public class Library {
     //the number of books that can be scanned each day from the library once the library is signed up
     private int booksPerDay;
 
+    private int score;
+
 
     public Library(int id,List<Book> books, int days, int booksPerDay) {
         this.id = id;
@@ -86,5 +88,13 @@ public class Library {
         int lib_score = (sum / high_score_books.size()) + lib.getDays();
 
         return lib_score;
+    }
+
+    public int getScore() {
+        return score;
+    }
+
+    public void setScore(int score) {
+        this.score = score;
     }
 }
