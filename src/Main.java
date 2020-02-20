@@ -6,10 +6,13 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) {
         String fileName = "a_example.txt";
-        parse(fileName);
+        List<Library> libraries = parse(fileName);
+
+
+
     }
 
-    public static void parse(String fileName) {
+    private static List<Library> parse(String fileName) {
         File file = new File(fileName);
         List<Library> libraries = new ArrayList<>();
         Map<Integer,Integer> scoreMap = new HashMap<Integer,Integer>();
@@ -61,5 +64,7 @@ public class Main {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
+
+        return libraries;
     }
 }
