@@ -1,6 +1,3 @@
-package Qfte.src;
-
-import java.awt.print.Book;
 import java.util.*;
 
 public class Library {
@@ -72,7 +69,7 @@ public class Library {
         int[] scores = new int[books.size()];
         for (int i = 0; i < books.size(); i++) {
             Book b = books.get(i);
-            scores[i] = b.getScore();
+//            scores[i] = b.getScore();
         }
         Arrays.sort(scores);
         int median = (int) findMedian(scores, books.size());

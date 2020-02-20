@@ -9,6 +9,8 @@ public class Main {
     public static void main(String[] args) {
         String fileName = "a_example.txt";
        InputReader reader =  new InputReader(fileName);
+       List<Library> libs = reader.getLibraries();
+       
     }
 
 
