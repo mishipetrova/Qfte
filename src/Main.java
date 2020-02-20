@@ -40,7 +40,7 @@ public class Main {
                    books.add(new Book(Integer.parseInt(s),scoreMap.get(Integer.parseInt(s))));
                    System.out.print( "Book id" + Integer.parseInt(s) + " ");
                }
-               libraries.add(new Library(books,signup,booksPerDay));
+               libraries.add(new Library(libraryId,books,signup,booksPerDay));
                System.out.println();
            }
 
