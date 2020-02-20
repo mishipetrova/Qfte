@@ -3,6 +3,15 @@ import java.util.Objects;
 public class Book {
 
     private int id;
+    private boolean isScanned;
+
+    public boolean isScanned() {
+        return isScanned;
+    }
+
+    public void setScanned(boolean scanned) {
+        isScanned = scanned;
+    }
 
     private int score;
 

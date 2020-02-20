@@ -16,8 +16,8 @@ public class LibraryComparator implements Comparator<Library> {
         }
         int l1Final = 0;
         int l2Final = 0;
-        int l1Score = l1.getDays() * 3 + l1.getBooksPerDay() * 7;
-        int l2Score = l2.getDays() * 3 + l2.getBooksPerDay() * 7;
+        int l1Score = l1.getDays() * 7 + l1.getBooksPerDay() * 3;
+        int l2Score = l2.getDays() * 7 + l2.getBooksPerDay() * 3;
         if(l1Score > l2Score){
             for(Book b : l1.getBooks()){
                 if(common.contains(b)){

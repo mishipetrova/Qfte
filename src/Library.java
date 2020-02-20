@@ -87,4 +87,34 @@ public class Library {
 
         return lib_score;
     }
+
+    public Pair<Integer,List<Book>> CalculateLibraryScoreM() {
+        if(this.books.size() ==0){
+            return new Pair<>(0,new ArrayList<>());
+        }
+        List<Book> books = getBooks(); //books score increasing sorted
+        int[] scores = new int[books.size()];
+        for (int i = 0; i < books.size(); i++) {
+            Book b = books.get(i);
+            scores[i] = b.getScore();
+        }
+        Arrays.sort(scores);
+        int median = (int) findMedian(scores, books.size());
+        List<Book> temp_books;
+        List<Book> high_score_books = new ArrayList<>();
+        for (int i = median; i < books.size(); i++) {
+            high_score_books.add(books.get(i));
+
+        }
+        int sum = 0;
+        for (Book b: high_score_books) {
+            sum += b.getScore();
+        }
+        if(high_score_books.size() == 0){
+            return new Pair<>(0,new ArrayList<>());
+
+        }
+        int lib_score = (sum / high_score_books.size()) - this.getDays();
+        return new Pair<Integer,List<Book>>(lib_score,high_score_books);
+    }
 }
