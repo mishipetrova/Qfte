@@ -2,11 +2,16 @@ import java.util.List;
 
 public class CalculateLibraryScoreAvg implements CalculateLibraryScore {
 
-    public Long calculate(List<Book> books) {
-        Long sum = 0L;
-        for (Book book : books) {
-            sum += (long) book.getScore();
-        }
-        return sum/books.size();
+    CalculateBookScoreAvg cbsa;
+
+    @Override
+    //Calculates Library score
+    //Inputs : library - The library to calculate
+    //       : books   - A list of all books
+    public double calculate(Library library, List<Book> books) {
+        double score = 0;
+        score = ( cbsa.calculate(library.getBooks() ) * library.getBooksPerDay() ) - ( library.getDays() * cbsa.calculate(books) );
+        return score ;
     }
+
 }
