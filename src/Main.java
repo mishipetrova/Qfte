@@ -28,8 +28,7 @@ public class Main {
                strings = line.split(" ");
 
                System.out.println( "Library " + i + " has num of books " + strings[0] + " signup time " + strings[1] +  " and number of books per day " + strings[2]);
-                int libraryId = i;
-                int numBooks = Integer.parseInt(strings[0]);
+               int numBooks = Integer.parseInt(strings[0]);
                 int signup = Integer.parseInt(strings[1]);
                 int booksPerDay = Integer.parseInt(strings[2]);
                 List<Book> books = new ArrayList<>();
@@ -40,7 +39,7 @@ public class Main {
                    books.add(new Book(Integer.parseInt(s),scoreMap.get(Integer.parseInt(s))));
                    System.out.print( "Book id" + Integer.parseInt(s) + " ");
                }
-               libraries.add(new Library(books,signup,booksPerDay));
+               libraries.add(new Library(i,books,signup,booksPerDay));
                System.out.println();
            }
 
