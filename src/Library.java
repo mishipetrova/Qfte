@@ -3,11 +3,11 @@ import java.util.*;
 public class Library {
 
     //the set of books in the library
-    List<Book> books;
+    private List<Book> books;
     //the time in days that it takes to sign the library up for scanning
-    int days;
+    private int days;
     //the number of books that can be scanned each day from the library once the library is signed up
-    int booksPerDay;
+    private int booksPerDay;
 
 
     public Library(List<Book> books, int days, int booksPerDay) {
