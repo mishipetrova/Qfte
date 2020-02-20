@@ -1,3 +1,3 @@
-public interface CalculateLibraryScore {
+public interface CalculateBookScore {
     Long calculate();
 }
