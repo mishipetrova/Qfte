@@ -37,7 +37,7 @@ public class Main {
                strings = line.split(" ");
                for(String s : strings){
                    books.add(new Book(Integer.parseInt(s),scoreMap.get(Integer.parseInt(s))));
-                   System.out.print( "Book id" + Integer.parseInt(s) + " ");
+                   System.out.print( "Book ID " + Integer.parseInt(s) + " ");
                }
                libraries.add(new Library(i,books,signup,booksPerDay));
                System.out.println();
