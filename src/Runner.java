@@ -1,15 +1,9 @@
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 public class Runner {
     private List<Library> libraries;
     private SolutionWriter solutionWriter;
     private int maxDays;
-
-    private void fill(List<Pair<Library,List<Book>>>) {
-
-    }
 
     public void setLibraries(List<Library> libraries) {
         this.libraries = libraries;
@@ -33,6 +27,7 @@ public class Runner {
         LinkedList<Library> readyLibs = new LinkedList<>();
         LibSigner libSigner = new LibSigner();
         List<Pair<Library,List<Book>>> result = new ArrayList<>();
+        HashMap<Integer, List<Book>> libToBook = new HashMap<>();
 
         int unsignedLibIndex = 0;
         libSigner.signLibrary(libraries.get(unsignedLibIndex).getDays(), unsignedLibIndex);
@@ -50,20 +45,30 @@ public class Runner {
             int count = 0;
             while (count < library.getBooksPerDay() && !library.getBooks().isEmpty()) {
                 Book nextBook = library.getBooks().remove(0);
-                if (scanBook(result, library.getBooks().get(0))) {
+                if (scanBook(result, nextBook, library, libToBook)) {
                     count++;
                 }
             }
-
-
         }
+
+        for (Map.Entry<Integer, List<Book>> entry : libToBook.entrySet()) {
+            Pair<Library, List<Book>> pair = new Pair<>(new Library(entry.getKey(), null, 0, 0), entry.getValue());
+            result.add(pair);
+        }
+
+        solutionWriter.writeToFile(result);
     }
 
-    private boolean scanBook(List<Pair<Library,List<Book>>> result, Book book) {
+    private boolean scanBook(List<Pair<Library,List<Book>>> result, Book book, Library library
+            , HashMap<Integer, List<Book>> libToBook) {
         if (book.isScanned()) {
             return false;
         }
-        return false;
 
+        List<Book> scanned= libToBook.getOrDefault(library.getId(), new ArrayList<>());
+        scanned.add(book);
+        libToBook.put(library.getId(), scanned);
+
+        return true;
     }
 }
