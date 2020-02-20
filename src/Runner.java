@@ -35,9 +35,13 @@ public class Runner {
 
         for (int day = 1; day < maxDays; day++) {
             if (libSigner.incrementAndCheckEmpty()) {
+                readyLibs.addLast(libraries.get(unsignedLibIndex - 1));
+
+                if (unsignedLibIndex >= libraries.size()) {
+                    continue;
+                }
                 libSigner.signLibrary(libraries.get(unsignedLibIndex).getDays(), unsignedLibIndex);
                 unsignedLibIndex++;
-                readyLibs.addLast(libraries.get(unsignedLibIndex - 2));
             }
         }
 
