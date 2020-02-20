@@ -1,5 +1,5 @@
 import java.util.List;
 
 public interface CalculateLibraryScore {
-    Long calculate(List<Book> books);
+    double calculate(Library library, List<Book> books);
 }
