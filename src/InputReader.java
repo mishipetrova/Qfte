@@ -42,7 +42,6 @@ public class InputReader {
             line = sc.nextLine();
             strings = line.split(" ");
             for(int i = 0 ;i < strings.length;i++){
-                System.out.println( "Book " + i + " has score: " + Integer.parseInt(strings[i]));
                 scoreMap.put(i,Integer.parseInt(strings[i]));
             }
 
@@ -50,7 +49,6 @@ public class InputReader {
                 line = sc.nextLine();
                 strings = line.split(" ");
 
-                System.out.println( "Library " + i + " has num of books " + strings[0] + " signup time " + strings[1] +  " and number of books per day " + strings[2]);
                 int numBooks = Integer.parseInt(strings[0]);
                 int signup = Integer.parseInt(strings[1]);
                 int booksPerDay = Integer.parseInt(strings[2]);
@@ -67,12 +65,9 @@ public class InputReader {
 
                     }
                     books.add(new Book(Integer.parseInt(s),scoreMap.get(Integer.parseInt(s))));
-                    System.out.print( "Book ID " + Integer.parseInt(s) + " ");
                 }
                 libraries.add(new Library(i,books,signup,booksPerDay));
-                System.out.println();
             }
-            System.out.println("Done");
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();

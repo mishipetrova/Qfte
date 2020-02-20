@@ -1,5 +1,6 @@
+import java.util.Objects;
+
 public class Book {
-    private boolean isScanned;
 
     private int id;
 
@@ -8,7 +9,6 @@ public class Book {
     public Book(int id, int score) {
         this.id = id;
         this.score = score;
-        this.isScanned = false;
     }
 
     public int getId() {
@@ -19,7 +19,21 @@ public class Book {
         this.id = id;
     }
 
-    public double getScore() {
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Book book = (Book) o;
+        return id == book.id;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
+
+
+    public int getScore() {
         return score;
     }
 
@@ -27,11 +41,5 @@ public class Book {
         this.score = score;
     }
 
-    public boolean isScanned() {
-        return isScanned;
-    }
 
-    public void setScanned(boolean scanned) {
-        isScanned = scanned;
-    }
 }
