@@ -11,6 +11,24 @@ public class Runner {
 
     }
 
+    public void setLibraries(List<Library> libraries) {
+        this.libraries = libraries;
+    }
+
+    public void setSolutionWriter(SolutionWriter solutionWriter) {
+        this.solutionWriter = solutionWriter;
+    }
+
+    public void setMaxDays(int maxDays) {
+        this.maxDays = maxDays;
+    }
+
+    public Runner(List<Library> libraries, SolutionWriter solutionWriter, int maxDays) {
+        this.libraries = libraries;
+        this.solutionWriter = solutionWriter;
+        this.maxDays = maxDays;
+    }
+
     public void run() {
         LinkedList<Library> readyLibs = new LinkedList<>();
         LibSigner libSigner = new LibSigner();
